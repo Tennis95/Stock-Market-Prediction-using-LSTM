@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 # Load dataset (replace with your file path)
-file_path = "‎Build/Processed_Stock_Data.xlsx"
+file_path = "/Build/Processed_Stock_Data.xlsx"
 df = pd.read_excel(file_path)
 
 # Preprocess dataset
