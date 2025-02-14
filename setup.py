@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 # Load dataset (replace with your file path)
-df = pd.read_excel("/mount/src/stock-market-prediction-using-lstm/setup.py")
+df = pd.read_excel("/mount/src/content/drive/MyDrive/Processed_Stock_Data.xlsx"/setup.py")
 
 # Preprocess dataset
 df['Date'] = pd.to_datetime(df['Date'])
