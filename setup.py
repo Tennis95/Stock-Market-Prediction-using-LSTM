@@ -7,7 +7,7 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 # Load dataset (replace with your file path)
-df = pd.read_excel("Build/Processed_Stock_Data.xlsx")
+df = pd.read_excel("/Build/Processed_Stock_Data.xlsx")
 
 # Preprocess dataset
 df['Date'] = pd.to_datetime(df['Date'])
