@@ -117,8 +117,9 @@ st.sidebar.header("Upload Stock Data")
 uploaded_file = st.sidebar.file_uploader("/content/drive/MyDrive/Processed_Stock_Data.xlsx", type=["xlsx"])
 
 if uploaded_file:
-    df = load_data("Build/Processed_Stock_Data.xlsx")
+    df = load_data(uploaded_file)
     df, scaler = preprocess_data(df)
+    return pd.read_excel(uploaded_file,engine="openpyxl")
 
     st.subheader("📊 Stock Data Preview")
     st.write(df.tail())
