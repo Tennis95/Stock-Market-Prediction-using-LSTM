@@ -6,6 +6,7 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 import openpyxl
+import streamlit as st
 
 # Load dataset (replace with your file path)
 df = pd.read_excel("Build/Processed_Stock_Data.xlsx")
