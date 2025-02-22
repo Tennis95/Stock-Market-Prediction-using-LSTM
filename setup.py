@@ -117,7 +117,8 @@ st.sidebar.header("Upload Stock Data")
 uploaded_file = st.sidebar.file_uploader("/content/drive/MyDrive/Processed_Stock_Data.xlsx", type=["xlsx"])
 
 if uploaded_file:
-    df =  pd.read_exce("/content/drive/MyDrive/Processed_Stock_Data.xlsx")
+    def loaddata(upload_file):
+    df =  pd.read_exce("Build/Processed_Stock_Data.xlsx")
     df, scaler = preprocess_data(df)
    
 
