@@ -118,7 +118,7 @@ uploaded_file = st.sidebar.file_uploader("/content/drive/MyDrive/Processed_Stock
 
 if uploaded_file:
     def load_data(upload_file):
-        return pd.read_excel(filepath = engine"openpyxl") 
+        return pd.read_excel(filepath,engine="openpyxl") 
     df =  load_data("/content/drive/MyDrive/Processed_Stock_Data.xlsx")
     df, scaler = preprocess_data(df)
    
