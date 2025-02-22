@@ -5,6 +5,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
+import openpyxl
 
 # Load dataset (replace with your file path)
 df = pd.read_excel("Build/Processed_Stock_Data.xlsx")
