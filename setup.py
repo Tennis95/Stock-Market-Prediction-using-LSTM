@@ -111,8 +111,8 @@ plt.show()
 mape = np.mean(np.abs((y_test_seq - y_pred) / y_test_seq)) * 100
 print(f"Test MAPE: {mape:.2f}%")
 # Streamlit UI
-df.title("📈 Stock Price Prediction using LSTM")
-df.sidebar.header("Upload Stock Data")
+st.title("📈 Stock Price Prediction using LSTM")
+st.sidebar.header("Upload Stock Data")
 uploaded_file = st.sidebar.file_uploader("/content/drive/MyDrive/Processed_Stock_Data.xlsx", type=["xlsx"])
 
 if uploaded_file:
