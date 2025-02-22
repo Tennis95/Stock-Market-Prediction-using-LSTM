@@ -110,3 +110,38 @@ plt.title("Actual vs Predicted Stock Prices")
 plt.show()
 mape = np.mean(np.abs((y_test_seq - y_pred) / y_test_seq)) * 100
 print(f"Test MAPE: {mape:.2f}%")
+# Streamlit UI
+df.title("📈 Stock Price Prediction using LSTM")
+df.sidebar.header("Upload Stock Data")
+uploaded_file = st.sidebar.file_uploader("/content/drive/MyDrive/Processed_Stock_Data.xlsx", type=["xlsx"])
+
+if uploaded_file:
+    df = load_data(uploaded_file)
+    df, scaler = preprocess_data(df)
+
+    st.subheader("📊 Stock Data Preview")
+    st.write(df.tail())
+
+    model_path = "lstm_model.h5"  # Ensure this model exists
+    model = load_lstm_model(model_path)
+
+    days_to_predict = st.sidebar.slider("Select days to predict", 10, 60, 30)
+
+    if st.sidebar.button("Predict Stock Prices"):
+        predictions = predict_next_prices(df, scaler, model, days_to_predict)
+
+        future_dates = [df['Date'].max() + datetime.timedelta(days=i) for i in range(1, days_to_predict + 1)]
+        
+        # Plot predictions
+        plt.figure(figsize=(10, 5))
+        plt.plot(df['Date'], df['Close'], label="Actual Prices", color="blue")
+        plt.plot(future_dates, predictions, label="Predicted Prices", color="red", linestyle="dashed")
+        plt.xlabel("Date")
+        plt.ylabel("Stock Price")
+        plt.legend()
+        st.pyplot(plt)
+
+        # Show prediction values
+        pred_df = pd.DataFrame({"Date": future_dates, "Predicted Close Price": predictions.flatten()})
+        st.subheader("🔮 Predicted Stock Prices")
+        st.write(pred_df)
